@@ -9,8 +9,8 @@
     </groups>
     <templates>
         <template>
-            <template>SystemD service monitoring template</template>
-            <name>SystemD service monitoring template</name>
+            <template>SystemD whitelist service monitoring template</template>
+            <name>SystemD whitelist service monitoring template</name>
             <description>Discovery enabled systemd services, checks status every 1m, and checks systemd service active time to determine if service has restarted.</description>
             <groups>
                 <group>
@@ -235,7 +235,7 @@
                     </item_prototypes>
                     <trigger_prototypes>
                         <trigger_prototype>
-                            <expression>{SystemD service monitoring template:systemd.service.restart[{#SERVICE}].last()}&gt;0 and {SystemD service monitoring template:systemd.uptime.last()}&gt;180</expression>
+                            <expression>{SystemD whitelist service monitoring template:systemd.service.restart[{#SERVICE}].last()}&gt;0 and {SystemD whitelist service monitoring template:systemd.uptime.last()}&gt;180</expression>
                             <recovery_mode>0</recovery_mode>
                             <recovery_expression/>
                             <name>{#SERVICE} service has restarted</name>
@@ -251,7 +251,7 @@
                             <tags/>
                         </trigger_prototype>
                         <trigger_prototype>
-                            <expression>{SystemD service monitoring template:systemd.service.status[{#SERVICE}].last()}&lt;&gt;0</expression>
+                            <expression>{SystemD whitelist service monitoring template:systemd.service.status[{#SERVICE}].last()}&lt;&gt;0</expression>
                             <recovery_mode>0</recovery_mode>
                             <recovery_expression/>
                             <name>{#SERVICE} service not running</name>
